@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<stdlib.h>
+//#include<conio.h>
+#define max 7
+void push();
+void pop();
+void display();
+static int top=-1;
+int stack[max-1];
+int item;
+int main()
+{
+int choice;
+//clrscr();
+do{
+printf("\n1.push\n2.pop\n3.display\n0.exit\n");
+printf("Enter your choice:");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+	printf("push\n");
+	push();
+	break;
+case 2:
+	printf("pop\n");
+	pop();
+	break;
+case 3:
+	printf("display\n");
+	display();
+	break;
+case 0:
+	printf("Exit");
+	break;
+default:
+	printf("invallid");
+}
+}while(choice!=0);
+//getch();
+}
+
+void push()
+{
+if(top==max-1)
+{
+printf("stack is full\n");
+}
+else
+{
+printf("Enter the number to be inserted:");
+scanf("%d",&item);
+top++;
+stack[top]=item;
+}
+}
+
+void pop()
+{
+if(top==-1)
+{
+printf("stack is underflow\n");
+}
+else
+{
+printf("poped element is %d",stack[top]);
+top--;
+}
+}
+void display()
+{
+if(top!=-1)
+{
+for(int i=top;i>=0;i--)
+{
+printf("STACK[%d]=%d\n",i,stack[i]);
+}
+}
+else
+{
+printf("stack is empty");
+}
+}

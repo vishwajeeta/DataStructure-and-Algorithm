@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>
+int linsearch(int,int[],int);
+
+void main(){
+int n,pos,a[20],k,i;
+clock_t begin,end;
+clrscr();
+printf("Enter the number of elements\n");
+scanf("%d",&n);
+printf("Enter the number of an array in the order:\n");
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);
+printf("Enter the element to be searched\n");
+scanf("%d",&k);
+begin=clock();
+pos=linsearch(n,a,k);
+end=clock();
+if(pos==-1)
+printf("\n\n Unsucessful search");
+else
+printf("\n element %d is found at position %d",k,pos+1);
+printf("\n time taken is %f CPU cycle \n",(end-begin)/CLK_TCK);
+getch();
+}
+
+int insearch(int n,int a[],int k)
+{
+delay(1000);
+if(n<0)
+return -1;
+if(k==a[n-1])
+return (n-1);
+else
+return linsearch(n-1,a,k);
+}

@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+
+void selsort(int arr[100],int n);
+void main()
+{
+int n,arr[100];
+clrscr();
+printf("Enter the number you want to enter:\n");
+scanf("%d",&n);
+printf("Enter the number in assending order:");
+for(int i=0;i<n;i++)
+{
+scanf("%d",&arr[i]);
+}
+selsort(arr,n);
+getch();
+}
+
+void selsort(int arr[],int n)
+{
+int i,j,large;
+for(i=0;i<n-1;i++)
+{
+large=i;
+for(j=i+1;j<n;j++)
+if(arr[j]>arr[large])
+large=j;
+
+swap(&arr[large],&arr[i]);
+}
+}
+void swap(int *xp,int *yp)
+{
+int temp=*xp;
+*xp=*yp;
+*yp=temp;
+}
